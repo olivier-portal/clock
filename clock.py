@@ -27,6 +27,9 @@ def time_format_12():
     
     # update time every second
     time_label_12.after(1000, time_format_12)
+    
+# def stop_time():
+#     time.sleep(10)
 
 ######### define style
 
@@ -40,14 +43,20 @@ time_label_24 = Label(window, font=("roboto", 50), fg="#00FF00", bg="black")
 time_label_12.pack(side="top", fill="x", padx=1, pady=1, expand="yes")
 time_label_24.pack(side="top", fill="x", padx=1, pady=1, expand="yes")
 
-# button in footer
+# button to change hour format
 button_12 = Button(window, font="roboto", text="12", fg="lime", bg="black", command=time_format_12)
 button_12.pack(side="left", fill="x", padx=1, pady=1, expand="yes")
         
 button_24 = Button(window, font="roboto", text="24", fg="lime", bg="black", command= time_format_24)
 button_24.pack(side="right", fill="x", padx=1, pady=1, expand="yes")
 
+# button to stop time
+# icon_stop = PhotoImage(file= r"img\pause-solid.png")
+# button_sleep = Button(window, image= icon_stop, command=stop_time).pack()
+
+
 date_format()
 time_format_24()
+# stop_time()
 
 window.mainloop()
