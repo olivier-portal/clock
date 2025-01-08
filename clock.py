@@ -48,7 +48,7 @@ button_12 = Button(window, font="roboto", text="12", fg="lime", bg="black", comm
 button_12.pack(side="left", fill="x", padx=1, pady=1, expand="yes")
         
 button_24 = Button(window, font="roboto", text="24", fg="lime", bg="black", command= time_format_24)
-button_24.pack(side="right", fill="x", padx=1, pady=1, expand="yes")
+button_24.pack(side="left", fill="x", padx=1, pady=1, expand="yes")
 
 # button to stop time
 # icon_stop = PhotoImage(file= r"pause-solid.png")
