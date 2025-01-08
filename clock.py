@@ -1,5 +1,6 @@
 from tkinter import *
-from time import *
+import time
+
 # import locale
 
 # Mettre la date en français
@@ -8,28 +9,28 @@ from time import *
 window = Tk ()
 
 def date_format():
-    date_string = strftime("%A %d %B, %Y")
+    date_string = time.strftime("%A %d %B, %Y")
     date_label.config(text=date_string)
     
     # update date every second
     date_label.after(1000, date_format) 
 
 def time_format_24():
-    time_string_24 = strftime("%H:%M:%S")
+    time_string_24 = time.strftime("%H:%M:%S")
     time_label_24.config(text=time_string_24)
 
     # update time every second
     time_label_24.after(1000, time_format_24)
 
 def time_format_12():
-    time_string_12= strftime("%I:%M:%S %p")
+    time_string_12= time.strftime("%I:%M:%S %p")
     time_label_12.config(text=time_string_12)
     
     # update time every second
     time_label_12.after(1000, time_format_12)
     
-# def stop_time():
-#     time.sleep(10)
+def stop_time():
+    time.sleep(10)
 
 ######### define style
 
@@ -48,15 +49,15 @@ button_12 = Button(window, font="roboto", text="12", fg="lime", bg="black", comm
 button_12.pack(side="left", fill="x", padx=1, pady=1, expand="yes")
         
 button_24 = Button(window, font="roboto", text="24", fg="lime", bg="black", command= time_format_24)
-button_24.pack(side="right", fill="x", padx=1, pady=1, expand="yes")
+button_24.pack(side="left", fill="x", padx=1, pady=1, expand="yes")
 
 # button to stop time
-# icon_stop = PhotoImage(file= r"img\pause-solid.png")
-# button_sleep = Button(window, image= icon_stop, command=stop_time).pack()
+# icon_stop = PhotoImage(file= r"pause-solid.png")
+button_sleep = Button(window, command=stop_time, text="Essaie Mamie", fg="lime", bg="black")
+button_sleep.pack(side="bottom", fill="both", padx=1, pady=1, expand="yes")
 
 
 date_format()
 time_format_24()
-# stop_time()
 
 window.mainloop()
