@@ -1,5 +1,5 @@
-from set_time import set_time
-from update_time import update_time
+from functions.set_time import set_time
+from functions.update_time import update_time
 import time
 
 def main():
