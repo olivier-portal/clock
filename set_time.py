@@ -1,4 +1,4 @@
-def current_time():
+def set_time():
     
     while True:
         try:
@@ -30,7 +30,5 @@ def current_time():
                 print("Les secondes doivent être un nombre entier entre 0 et 59.")
         except ValueError:
             print("Veuillez entrer un nombre entier pour les secondes.")
-    set_time = f"{hours:02}:{minutes:02}:{seconds:02}"
-    print(set_time)
-
-current_time()
+    
+    return (hours, minutes, seconds)
