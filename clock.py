@@ -7,6 +7,7 @@ import time
 # locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
 
 window = Tk ()
+window.geometry("500x200")
 
 # Define which format to show to user
 hour_format = "24"
