@@ -1,8 +1,12 @@
 def update_time(current_time):        
     while True:
+        # stock hours, minutes and seconds
         hours, minutes, seconds = current_time
+        
+        # add a second for update
         seconds += 1
         
+        # keep time in right format
         if seconds >=60:
             seconds = 0
             minutes += 1

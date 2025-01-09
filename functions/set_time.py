@@ -1,8 +1,12 @@
 from .update_time import update_time
 import time
 
+'''Permitt user to set a new time'''
 def set_time():
+    # ask user if he wants to change the hour
     print("Veuillez régler l'heure de l'horloge")
+    
+    # handle user's mistakes
     while True:
         try:
             hours = int(input("Entrez l'heure: "))
@@ -35,6 +39,8 @@ def set_time():
             print("Veuillez entrer un nombre entier pour les secondes.")
     
     current_time = (hours, minutes, seconds)
+    
+    # Add a loop to update the new hour every second
     while True:
         current_time = update_time(current_time)
         print(f"{current_time[0]:02}:{current_time[1]:02}:{current_time[2]:02}", end="\r")
