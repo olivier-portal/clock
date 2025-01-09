@@ -35,7 +35,9 @@ def set_alarm():
                 break
             elif create_alarm == "n" or create_alarm == "N":
                 break
+            else:
+                print("Veuillez entrer O ou N")
         except ValueError:
             print("Veuillez entrer O ou N")
         
-    return (hours, minutes, seconds)
+            return (hours, minutes, seconds)
