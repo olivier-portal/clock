@@ -1,5 +1,5 @@
 def set_time():
-    
+    print("Veuillez régler l'heure de l'horloge")
     while True:
         try:
             hours = int(input("Entrez l'heure: "))
