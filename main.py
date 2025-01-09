@@ -6,5 +6,5 @@ from functions.set_alarm import set_alarm
 import time
 
 # run functions in order of appearence
-current_time = display_time()
-set_time(current_time)
+# display_time()
+set_time()
