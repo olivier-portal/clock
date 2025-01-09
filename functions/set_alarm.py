@@ -2,7 +2,7 @@ def set_alarm():
     
     while True:
         try:
-            create_alarm =input("Voulez-vous mettre une alarme ? O/N: ")
+            create_alarm =input("\nVoulez-vous mettre une alarme ? O/N: ")
             if create_alarm == "o" or create_alarm == "O":
                 while True:
                     try:
