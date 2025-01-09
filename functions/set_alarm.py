@@ -3,7 +3,7 @@ def set_alarm():
     while True:
         try:
             create_alarm =input("Voulez-vous mettre une alarme ? O/N: ")
-            if create_alarm == "o".capitalize or create_alarm == "O":
+            if create_alarm == "o" or create_alarm == "O":
                 while True:
                     try:
                         hours = int(input("Entrez l'heure de l'alarme: "))
@@ -33,7 +33,7 @@ def set_alarm():
                     except ValueError:
                         print("Veuillez entrer un nombre entier pour les secondes.")
                 break
-            elif create_alarm == "n".capitalize or create_alarm == "N":
+            elif create_alarm == "n" or create_alarm == "N":
                 break
         except ValueError:
             print("Veuillez entrer O ou N")
