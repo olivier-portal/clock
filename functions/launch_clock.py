@@ -1,5 +1,6 @@
 from .display_time import display_time
 from .set_time import set_time
+from .set_alarm import set_alarm
 
 def launch_clock():
     while True:
