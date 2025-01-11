@@ -5,8 +5,7 @@ from functions.activate_alarm import activate_alarm
 from functions.set_time import set_time
 
 # permitt to switch between functions
-if set_alarm() == launch_clock():
-    print("test")
-
+set_alarm()
+launch_clock()
 
 
