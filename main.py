@@ -5,7 +5,5 @@ from functions.activate_alarm import activate_alarm
 from functions.set_time import set_time
 
 # permitt to switch between functions
-set_alarm()
+# set_alarm()
 launch_clock()
-
-

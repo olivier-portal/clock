@@ -1,10 +1,14 @@
 from .update_time import update_time
 import time
+import keyboard
+
 
 '''Permitt user to set a new time'''
 def set_time():
     # ask user if he wants to change the hour
     print("Veuillez régler l'heure de l'horloge")
+    
+    pause = False
     
     # handle user's mistakes
     while True:
@@ -42,6 +46,18 @@ def set_time():
     
     # Add a loop to update the new hour every second
     while True:
-        current_time = update_time(current_time)
-        print(f"{current_time[0]:02}:{current_time[1]:02}:{current_time[2]:02}", end="\r")
-        time.sleep(1)
+        if pause == False:
+            current_time = update_time(current_time)
+            print(f"{current_time[0]:02}:{current_time[1]:02}:{current_time[2]:02}", "hold f to put time on pause      ", end="\r")
+            time.sleep(1)
+        
+        if pause == True:# pause fonctionnel
+            print(f"{current_time[0]:02}:{current_time[1]:02}:{current_time[2]:02}", "it's paused, press g to restart", end="\r")
+        
+        if keyboard.is_pressed("f"):
+            pause = True
+            time.sleep(0.01)
+            
+        if pause == True and keyboard.is_pressed("g"): 
+            pause = False
+            time.sleep(0.01)
