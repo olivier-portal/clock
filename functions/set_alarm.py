@@ -32,11 +32,12 @@ def set_alarm():
                             print("Les secondes doivent être un nombre entier entre 0 et 59.")
                     except ValueError:
                         print("Veuillez entrer un nombre entier pour les secondes.")
-                current_time = (hours, minutes, seconds)
-                time_format = datetime.datetime.strptime("%H:%M:%S")
+                current_time = "%s:%s:%s" % (hours, minutes, seconds)
+                # current_time = (hours, minutes, seconds)
+                # time_format = datetime.datetime.strptime("%H:%M:%S")
                 print(f"{current_time[0]:02}:{current_time[1]:02}:{current_time[2]:02}", end="\r")
-                print(time_format)
-                return (time_format)
+                print(current_time)
+                return (current_time)
             
             elif create_alarm == "n" or create_alarm == "N":
                 return None
