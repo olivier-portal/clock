@@ -4,22 +4,22 @@ import keyboard
 
 
 '''Permitt user to set a new time'''
-def set_time():
-    # ask user if he wants to change the hour
+def set_time(alarm):
+    # Initialse pause
+    pause = False
+    
+    # Format choice
     while True:
         try:
-            time_format_input = int(input("Veuillez régler l'heure de l'horloge :\n"
-                                          "Pour un format de 12h, entrez 1 :\n"
-                                          "Pour un format de 24h, entrez 2 : "))
-            if time_format_input in [1, 2]:
+            time_format = int(input("Choisissez le format d'horloge :\n1 - 12 heures\n2 - 24 heures\n"))
+            if time_format in [1, 2]:
                 break
-            else:
-                print("Veuillez entrer 1 ou 2.")
+            print("Veuillez entrer 1 ou 2.")
         except ValueError:
-            print("Veuillez entrer un nombre valide (1 ou 2).")
+            print("Veuillez entrer un nombre valide.")
 
     # Manage 12h format
-    if time_format_input == 1:
+    if time_format == 1:
         while True:
             try:
                 hours = int(input("Entrez l'heure (1-12) : "))
@@ -59,7 +59,7 @@ def set_time():
         current_time = (hours, minutes, seconds, am_pm)
 
     # manage 24h format
-    elif time_format_input == 2:
+    elif time_format == 2:
         while True:
             try:
                 hours = int(input("Entrez l'heure (0-23) : "))
@@ -93,32 +93,30 @@ def set_time():
         current_time = (hours, minutes, seconds)
     
     
-    # Add a loop to update the new hour every second and manage pause
-    pause = False
     while True:
-        '''Add a possibility to put time on pause'''
-        # time is running
-        if pause == False:
-            current_time = update_time(current_time, time_format_input)
-            if time_format_input == 1:
-                print(f"{current_time[0]:02}:{current_time[1]:02}:{current_time[2]:02} {current_time[3]}", "Appuyez sur 'p' pour mettre en pause", end="\r")
+        # update time each seconds if not paused
+        if not pause:
+            current_time = update_time(current_time, time_format)
+            
+            if time_format == 1:
+                formatted_time = f"{current_time[0]:02}:{current_time[1]:02}:{current_time[2]:02} {current_time[3]}"
             else:
-                print(f"{current_time[0]:02}:{current_time[1]:02}:{current_time[2]:02}", "Appuyez sur 'p' pour mettre en pause", end="\r")
+                formatted_time = f"{current_time[0]:02}:{current_time[1]:02}:{current_time[2]:02}"
+            
+            # Vérify if it is the time for the alarm
+            if alarm and (current_time[0], current_time[1], current_time[2]) == alarm:
+                print("\nIl est l'heure de se réveiller!")
+                break
+            
+            print(f"{formatted_time} - Appuyez sur 'p' pour mettre en pause", end="\r")
             time.sleep(1)
         
-        # time is on pause
-        if pause == True:
-            if time_format_input == 1:
-                print(f"{current_time[0]:02}:{current_time[1]:02}:{current_time[2]:02} {current_time[3]}", "En pause, appuyez sur r pour reprendre", end="\r")
-            else:
-                print(f"{current_time[0]:02}:{current_time[1]:02}:{current_time[2]:02}", "En pause, appuyez sur r pour reprendre", end="\r")
-        
-        # press p to put time on pause
+        # Manage pause
         if keyboard.is_pressed("p"):
             pause = True
-            time.sleep(0.01)
-        
-        # press r to run time again    
-        if pause == True and keyboard.is_pressed("r"): 
+            print("\nHorloge en pause. Appuyez sur 'r' pour reprendre.", end="\r")
+            time.sleep(0.3)
+        elif pause and keyboard.is_pressed("r"):
             pause = False
-            time.sleep(0.01)
+            print("\nHorloge reprise.", end="\r")
+            time.sleep(0.3)
