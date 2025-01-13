@@ -108,7 +108,7 @@ def set_time(alarm):
                 print("\nIl est l'heure de se réveiller!")
                 break
             
-            print(f"{formatted_time} - Appuyez sur 'p' pour mettre en pause", end="\r")
+            print(f"{formatted_time} - Maintenir 'p' appuyer pour mettre en pause", end="\r")
             time.sleep(1)
         
         # Manage pause
