@@ -1,7 +1,7 @@
 def update_time(current_time, time_format):
     hours, minutes, seconds = current_time[:3]
     
-    # Incrémente les secondes
+    # Increment seconds
     seconds += 1
     if seconds == 60:
         seconds = 0
